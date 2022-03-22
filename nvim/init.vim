@@ -33,7 +33,6 @@ runtime ./lua/user/lsp/init.lua
 set linebreak
 set breakindent
 let &showbreak = "↳ "
-
 set foldmethod=marker foldlevel=0
 set tabstop=2
 set shiftwidth=2
@@ -49,16 +48,15 @@ set display+=lastline
 set complete+=kspell
 set completeopt=menuone,longest
 set exrc
-set relativenumber
-set nu
+" set relativenumber
+" set nu
 set nohlsearch
-set mouse=a
+" set mouse=a
 set hidden
 set splitright
 set splitbelow
 set noerrorbells
 set nowrap
-set linebreak
 set formatoptions+=r
 set ignorecase
 set smartcase
@@ -71,7 +69,7 @@ set incsearch
 set termguicolors
 set scrolloff=2
 set noshowmode
-set signcolumn=yes
+" set signcolumn=yes
 set number
 set updatetime=200
 set encoding=UTF-8
@@ -90,9 +88,9 @@ highlight Comment cterm=italic gui=italic
 if exists("&termguicolors") && exists("&winblend")
   syntax enable
   set termguicolors
-  set winblend=0
-  set wildoptions=pum
-  set pumblend=5
+  " set winblend=0
+  " set wildoptions=pum
+  " set pumblend=5
   set background=dark
 colorscheme gruvbox-material 
 endif

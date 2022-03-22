@@ -8,7 +8,7 @@
 let mapleader = " "
 
 " Move selected lines{{{
-g:MvVis_mappings
+" g:MvVis_mappings
 vmap <F11> <Plug>(MvVisLeft)
 vmap <F10> <Plug>(MvVisDown)
 vmap <F9> <Plug>(MvVisUp)
