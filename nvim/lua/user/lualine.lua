@@ -1,53 +1,41 @@
--- require('plenary.reload').reload_module('lualine', true)
--- require('lualine').setup({
---   options = {
---     theme = 'tokyonight',
---     disabled_types = { 'NvimTree' }
---   },
---   tabline = {
---     },
---   sections = {
---     lualine_a = {'mode'},
---     lualine_b = {'branch', 'diff', 'diagnostics'},
---     lualine_c = {'filename'},
---     lualine_x = {'filetype'},
---     lualine_y = {'progress'},
---     lualine_z = {'location'}
---   },
---   tabline = {
---   lualine_a = {'filename'},
---   lualine_b = {},
---   lualine_c = {},
---   lualine_x = {},
---   lualine_y = {},
---   lualine_z = {'tabs'}
--- },
--- })
-local colors = {
+-- local colors = {
+--   blue   = '#80a0ff',
+--   cyan   = '#79dac8',
+--   black  = '#080808',
+--   white  = '#c6c6c6',
+--   red    = '#ff5189',
+--   violet = '#d183e8',
+--   grey   = '#303030',
+-- }
+
+local colors2 = {
   blue   = '#80a0ff',
   cyan   = '#79dac8',
   black  = '#080808',
   white  = '#c6c6c6',
+  green = '#b9c960',
+  orange = '#cd7e4b',
   red    = '#ff5189',
   violet = '#d183e8',
   grey   = '#303030',
+  gris = '#282828',
 }
 
 local bubbles_theme = {
   normal = {
-    a = { fg = colors.black, bg = colors.violet },
-    b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.black, bg = colors.black },
+    a = { fg = colors2.black, bg = colors2.green },
+    b = { fg = colors2.white, bg = colors2.grey },
+    c = { fg = colors2.gris, bg = colors2.gris },
   },
 
-  insert = { a = { fg = colors.black, bg = colors.blue } },
-  visual = { a = { fg = colors.black, bg = colors.cyan } },
-  replace = { a = { fg = colors.black, bg = colors.red } },
+  insert = { a = { fg = colors2.black, bg = colors2.blue } },
+  visual = { a = { fg = colors2.black, bg = colors2.orange } },
+  replace = { a = { fg = colors2.black, bg = colors2.red } },
 
   inactive = {
-    a = { fg = colors.white, bg = colors.black },
-    b = { fg = colors.white, bg = colors.black },
-    c = { fg = colors.black, bg = colors.black },
+    a = { fg = colors2.white, bg = colors2.black },
+    b = { fg = colors2.white, bg = colors2.black },
+    c = { fg = colors2.black, bg = colors2.black },
   },
 }
 

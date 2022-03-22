@@ -4,7 +4,7 @@ require'nvim-tree'.setup {
   open_on_setup        = false,
   ignore_buffer_on_setup = false,
   ignore_ft_on_setup   = {},
-  auto_close           = false,
+  auto_close           = true,
   auto_reload_on_write = true,
   open_on_tab          = false,
   hijack_cursor        = false,
@@ -17,10 +17,10 @@ require'nvim-tree'.setup {
   diagnostics = {
     enable = true,
     icons = {
-      hint = "",
+      hint = "",
       info = "",
-      warning = "",
-      error = "✘",
+      warning = "",
+      error = "",
     }
   },
   update_focused_file = {
@@ -48,8 +48,9 @@ require'nvim-tree'.setup {
     side = 'left',
     preserve_window_proportions = false,
     mappings = {
-      custom_only = false,
-      list = {}
+      custom_only = true,
+      list = {
+      }
     },
     number = false,
     relativenumber = false,
@@ -65,7 +66,7 @@ require'nvim-tree'.setup {
       global = false,
     },
     open_file = {
-      quit_on_open = false,
+      quit_on_open = true,
       resize_window = false,
       window_picker = {
         enable = false,

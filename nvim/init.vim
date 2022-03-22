@@ -1,30 +1,50 @@
-"         
 " ██╗███╗   ██╗██╗████████╗██╗   ██╗██╗███╗   ███╗
 " ██║████╗  ██║██║╚══██╔══╝██║   ██║██║████╗ ████║
 " ██║██╔██╗ ██║██║   ██║   ██║   ██║██║██╔████╔██║
 " ██║██║╚██╗██║██║   ██║   ╚██╗ ██╔╝██║██║╚██╔╝██║
 " ██║██║ ╚████║██║   ██║██╗ ╚████╔╝ ██║██║ ╚═╝ ██║
 " ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
-"
+
+" Functions {{{
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
-"Imports
+augroup FORMATOPTIONS
+  autocmd!
+  autocmd FileType * set fo-=c fo-=r fo-=o " Disable continuation of comments to the next line
+  autocmd FileType * set formatoptions+=j  " Remove a comment leader when joining lines
+  autocmd FileType * set formatoptions+=l  " Don't break a line after a one-letter word
+  autocmd FileType * set formatoptions+=n  " Recognize numbered lists
+  autocmd FileType * set formatoptions-=q  " Don't format comments
+  autocmd FileType * set formatoptions-=t  " Don't autowrap text using 'textwidth'
+augroup END
+
+" }}}
+
+" Imports {{{
 runtime ./plug.vim
 runtime ./maps.vim
 runtime ./pconf.vim
 runtime ./lua/init.lua 
+runtime ./lua/user/lsp/init.lua
+" }}}
 
-set tabstop=4
-set shiftwidth=4
+" Vim settings {{{
+set linebreak
+set breakindent
+let &showbreak = "↳ "
+
+set foldmethod=marker foldlevel=0
+set tabstop=2
+set shiftwidth=2
+set ai
+set si
 set expandtab
 augroup myCmds
 au!
 autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
 set cmdheight=2
-
-
 set display+=lastline
 set complete+=kspell
 set completeopt=menuone,longest
@@ -37,9 +57,9 @@ set hidden
 set splitright
 set splitbelow
 set noerrorbells
-set wrap
+set nowrap
 set linebreak
-set formatoptions-=t
+set formatoptions+=r
 set ignorecase
 set smartcase
 set noswapfile
@@ -64,24 +84,20 @@ set ttyfast
 set lazyredraw
 let g:sneak#label = 1
 highlight Comment cterm=italic gui=italic
+" }}}
 
+" Tema {{{
 if exists("&termguicolors") && exists("&winblend")
   syntax enable
   set termguicolors
   set winblend=0
   set wildoptions=pum
   set pumblend=5
-  " set background=dark
-  " Example config in VimScript
-" let g:tokyonight_style = "night"
-" let g:tokyonight_italic_functions = 1
-" let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
-" let g:tokyonight_colors = {
-"   \ 'hint': 'orange',
-"   \ 'error': '#ff0000'
-" \ }
-colorscheme sunbather
+  set background=dark
+colorscheme gruvbox-material 
 endif
+" }}}
 
-"neoscroll
+" Neoscroll {{{
 lua require('neoscroll').setup()
+"}}}

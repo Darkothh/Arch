@@ -1,19 +1,68 @@
+ " ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗ 
+" ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝ 
+" ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗
+" ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║
+" ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝
+ " ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝                                               
+
 let mapleader = " "
 
-" nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+" Move selected lines{{{
+g:MvVis_mappings
+vmap <F11> <Plug>(MvVisLeft)
+vmap <F10> <Plug>(MvVisDown)
+vmap <F9> <Plug>(MvVisUp)
+vmap <F12> <Plug>(MvVisRight)
+"}}}
+
+" Nvim {{{
+nnoremap <leader>d "_d
+map <F5> :set nowrap!<CR> 
+nnoremap x "_x
+imap ,, <Esc>
+tmap ,, <Esc>
+" Delete a word backwards
+nnoremap dw vb"_d
+map <leader>h :noh<CR>
+map <leader>w  :w<CR>
+map <leader>ww  :wq<CR>
+map <leader>q :q<CR>
+map <leader>qq :q!<CR>
+nnoremap U <cmd>redo<CR>
+
+
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+" }}}
+
+"Markdown preview {{{
+nnoremap <silent> <F3> :MarkdownPreview<CR>
+nnoremap <silent> <F4> :MarkdownPreviewStop<CR>
+"}}}
+
+" Telescope {{{
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-"Windows 
+"}}}
+
+" Windows {{{ 
 nmap ss :split<Return><C-w>w
 nmap sv :vsplit=<Return><C-w>w
-"Move Windows 
+" Move Windows 
 map e<left> <C-w>h
 map e<up> <C-w>k
 map e<down> <C-w>j
 map e<right> <C-w>l
-
 nmap <leader><down> :resize +5<CR>
 nmap <leader><up> :resize -5<CR>
 nmap <leader><right> :vertical resize +5<CR>
@@ -21,25 +70,31 @@ nmap <leader><left> :vertical resize -5<CR>
 "tabs
 nmap <S-Tab> :tabnext<Return>
 nmap <Tab> :tabprev<Return>
-"Plug
+"}}}
+
+"Plug {{{
 map <leader>pr :source %<CR>
 map <leader>pc :PlugClean<CR>
 map <leader>pi :PlugInstall<CR>
 map <leader>pu :PlugUpdate<CR>
-"Nvim 
-imap ,, <Esc>
-tmap ,, <Esc>
-map <leader>h :noh<CR>
-map <leader>w  :w<CR>
-map <leader>ww  :wq<CR>
-map <leader>q :q<CR>
-map <leader>qq :q!<CR>
-map <leader>u :redo<CR>
-"Nvim-tree 
+"}}}
+
+" Nvim-tree {{{
 nnoremap <leader>e :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
+" nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
-"Commentary 
+"}}}
+
+" Commentary {{{
 nnoremap <leader>/ :Commentary<CR>
 vnoremap <leader>/ :Commentary<CR>
+"}}}
 
+" Trouble Diagnostics {{{
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
+nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
+nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
+nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
+nnoremap gR <cmd>TroubleToggle lsp_references<cr>
+"}}}
