@@ -48,10 +48,11 @@ set display+=lastline
 set complete+=kspell
 set completeopt=menuone,longest
 set exrc
+set cursorline
 " set relativenumber
 " set nu
 set nohlsearch
-" set mouse=a
+set mouse=a
 set hidden
 set splitright
 set splitbelow
@@ -92,7 +93,7 @@ if exists("&termguicolors") && exists("&winblend")
   " set wildoptions=pum
   " set pumblend=5
   set background=dark
-colorscheme gruvbox-material 
+colorscheme hybrid 
 endif
 " }}}
 

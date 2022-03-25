@@ -24,7 +24,6 @@ Plug 'ap/vim-css-color'
 
 " Markdown Preview {{{
 Plug 'iamcco/mathjax-support-for-mkdp'
-" Plug 'iamcco/markdown-preview.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -47,6 +46,11 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'hrsh7th/cmp-nvim-lsp'
 "}}}
 
+" Debug {{{
+Plug 'mfussenegger/nvim-dap' 
+Plug 'David-Kunz/jester'
+" }}}
+
 " Js prettier {{{
 Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
@@ -56,6 +60,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 " snippets {{{
 Plug 'L3MON4D3/LuaSnip' 
 Plug 'rafamadriz/friendly-snippets'
+Plug 'mattn/emmet-vim'
 "}}}
 
 "File Search {{{
@@ -75,10 +80,15 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 "}}}
 
-" Autopairs {{{
+" Pairs {{{
 Plug 'windwp/nvim-ts-autotag' "https://github.com/windwp/nvim-ts-autotag
-Plug 'windwp/nvim-autopairs'
+Plug 'jiangmiao/auto-pairs'
+Plug 'p00f/nvim-ts-rainbow'
 "}}}
+
+" Github {{{
+Plug 'lewis6991/gitsigns.nvim'
+" }}}
 
 " Random {{{
 Plug 'norcalli/nvim-colorizer.lua'
@@ -91,7 +101,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'akinsho/toggleterm.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'tpope/vim-eunuch'
-Plug 'mhinz/vim-signify'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
